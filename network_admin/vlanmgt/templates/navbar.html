@@ -1,22 +1,26 @@
 {% load static %}
 
-<header>
-    <h1>Network Admin</h1>
-    
-    
 
-    <ul>
-        
-        <li><a href="{% url 'home' %}"> Home  </a> </li>
-        <li><a href="{% url 'Create-Subnet' %}"> Add Subnet </a></li> 
-        <li><a href="{% url 'Create-Vlan' %}"> Add Vlan </a> </li>
-        <li><a href="{% url 'All-Vlans' %}"> All Vlans </a> </li>
-        <li><a href="{% url 'Search-ip' %}"> Find IP </a> </li>
-        
+<!-- Header Section -->
+<header class="header">
+    <div class="container container--narrow">
+      <a href="{% url 'home' %}" class="header__logo">
+        <img src="{% static 'images/admin.png' %}" style="width:100px;height:150;"  />
+      </a>
+      <nav class="header__nav">
+ 
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="{% url 'Create-Subnet' %}"> Add Subnet </a></li>
+          <li class="header__menuItem"><a href="{% url 'Create-Vlan' %}"> Add Vlan</a></li>
+          <li class="header__menuItem"><a href="{% url 'All-Vlans' %}"> All Vlans</a></li>
+          <li class="header__menuItem"><a href="{% url 'Search-ip' %}"> Find IP</a></li>
        
         </ul>
+      </nav>
+    </div>
+  </header>
 
-    <hr width="100%"
-    size="10" color="orange"
-    noshade>
-</header>
+
+
+
+<hr>
