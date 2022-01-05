@@ -94,7 +94,7 @@ def Asubnet_v(request,pk):
     ipsObj = ips.objects.all().filter(SubNetID=pk)
     ipsObjCount = ipsObj.count()
     ipsreserved =ipsObj.filter(ReserveName__exact='').count()
-    utilization = round(((ipsreserved/ipsObjCount)*100),2)
+    utilization = round(((abs(ipsreserved-ipsObjCount)/ipsObjCount)*100),2)
 
 
 
