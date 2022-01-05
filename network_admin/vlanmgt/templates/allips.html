@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>All IPS </h1>  
+
+
+<table>
+    <tr>
+      <th>ip Address</th>
+      
+      <th>Reserve </th>
+
+      <th>Subnet </th>
+      
+    </tr>
+   
+{% for start, key in ipsdict.items %}
+<tr>
+{% for key,value in key.items %}
+
+{% if key  == 'IpID' %}
+<td><a href="{% url 'Update-ip' value  %}">{{IpAdd}} </a> </td>
+{% elif key  == 'SubnetName' %}
+<td>{{value}}  </td>
+{% elif key  == 'ReserveName' %}
+<td>{{value}}  </td>
+{% endif %}
+
+  
+
+{% endfor %}
+</tr>
+{% endfor %}
+
+</table>
+{% endblock content %}

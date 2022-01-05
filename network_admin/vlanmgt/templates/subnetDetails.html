@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>Subnet Details </h1>  
+
+
+<ul>
+
+
+<li>Name        : {{subnet_list.SubnetName}} </li>
+<li>Subnet Mask : {{subnet_list.SubnetMask}} </li>
+<li>Network IP  : {{subnet_list.Networkip}} </li>
+{% if vlan_list%}
+<li>VLAN        : <a href="{% url 'Vlan' vlan_list.VlanID  %}">{{vlan_list}} </a></li>
+{% endif %}
+
+<li>CIDR        : {{subnet_list.CIDR}} </li>
+<li><a href="{% url 'Delete' subnet_list.SubnetID %}"> Delete</a></li>
+<li>utilization  Percentage : {{utilization}} %</li>
+</ul>
+<table>
+    <tr>
+      <th>ipAddress</th>
+      
+      <th>ReserveName</th>
+      <th>Action</th>
+    </tr>
+    {% for ip in ips_list %}
+    <tr>
+      {% if ip.ReserveName %}
+      <td style="color:red;">{{ip.IpAddress}}</td>
+      {% else %}
+      <td style="color:rgb(5, 236, 5);">{{ip.IpAddress}}</td>
+
+      {% endif %}
+      
+      
+      <td>{{ip.ReserveName}}</td>
+      <td><a href="{% url 'Update-ip' ip.IpID %}"> Edit</a></td>
+
+      
+      
+    </tr>
+    {% endfor %}
+ 
+  </table>
+
+{% endblock content %}

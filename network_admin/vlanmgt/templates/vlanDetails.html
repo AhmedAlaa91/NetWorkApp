@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>Vlan Details </h1>  
+
+
+<ul>
+
+
+<li>Name        : {{vlan_list.VlanName}} </li>
+
+{% if subnet_list.SubnetName %}
+<li>Subnet :<a href="{% url 'Subnet' subnet_list.SubnetID  %}"> {{subnet_list.SubnetName}}</a></li> 
+{% else %}
+
+<li>Subnet : </li> 
+
+{% endif %}
+<li><a href="{% url 'Update-Vlan' vlan_list.VlanID %}"> Edit </a></li>
+<li><a href="{% url 'Delete-Vlan' vlan_list.VlanID %}"> Delete </a></li>
+
+
+</ul>
+
+
+{% endblock content %}

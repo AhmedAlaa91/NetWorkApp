@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>View Form </h1>    
+<form method="POST">
+    {% csrf_token %}
+    
+    {% for field in form %}
+    {{field.label}}
+    {{field|linebreaks}}
+
+    {% endfor %}
+
+    <input type="submit" value="submit">
+
+</form>
+{% endblock content %}

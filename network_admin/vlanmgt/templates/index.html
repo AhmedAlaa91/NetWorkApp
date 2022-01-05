@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>Home </h1>  
+
+
+<ul>
+{% for subnet in subnet_list %}
+
+<li>{{subnet.SubnetName}}  :<a href="{% url 'Subnet' subnet.SubnetID %}"> More Details</a></li>
+
+{% endfor %}
+</ul>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>Search For IP </h1>  
+
+<form method="GET" action="{% url 'all-ips' %}">
+    <label for="ip">Ip:</label>
+    <input type="text" id="ipquery" name="ipquery"><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+
+
+
+
+{% endblock content %}

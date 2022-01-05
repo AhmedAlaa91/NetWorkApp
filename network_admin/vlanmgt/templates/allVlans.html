@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<h1>All Vlans </h1>  
+
+
+<ul>
+{% for vlan in vlans_list %}
+
+<li>{{vlan.VlanName}} :<a href="{% url 'Vlan' vlan.VlanID  %}"> More Details</a></li> 
+
+{% endfor %}
+</ul>
+
+{% endblock content %}
